@@ -3,18 +3,21 @@ package com.jesus.springboot.di.app.springboot_di.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.jesus.springboot.di.app.springboot_di.models.Product;
-import com.jesus.springboot.di.app.springboot_di.repositories.ProductRepositoryImpl;
+import com.jesus.springboot.di.app.springboot_di.repositories.ProductRepository;
 
 
-@Component // Indica que es un componente gestionado por Spring
+@Service // Atributos
 public class ProductServiceImpl  implements ProductService{ // Atributos
 
-    @Autowired // Inyeccion de dependencias
-    private ProductRepositoryImpl repository; // Simulando inyeccion de dependencias
+    
+    private ProductRepository repository; // Simulando inyeccion de dependencias
+
+    public ProductServiceImpl(ProductRepository repository) { // Constructor
+        this.repository = repository;
+    }
 
     @Override 
     public List<Product> findAll() { // Metodos
@@ -32,6 +35,7 @@ public class ProductServiceImpl  implements ProductService{ // Atributos
 
         return repository.findById(id); 
     }
+
 
     
 }
