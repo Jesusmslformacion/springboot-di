@@ -3,11 +3,15 @@ package com.jesus.springboot.di.app.springboot_di.repositories;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+//import org.springframework.web.context.annotation.RequestScope;
 
 import com.jesus.springboot.di.app.springboot_di.models.Product;
 
-@Repository // Atributos
+//@RequestScope // Un nuevo repositorio por cada solicitud HTTP
+@Primary // Marca esta implementacion como la principal cuando hay multiples beans del mismo tipo
+@Repository("productList") // Atributos
 public class ProductRepositoryImpl implements ProductRepository { // Atributos
 
     private List <Product> data; // Simulando una base de datos
