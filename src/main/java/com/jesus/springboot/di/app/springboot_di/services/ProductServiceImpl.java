@@ -22,7 +22,7 @@ public class ProductServiceImpl  implements ProductService{ // Atributos
 
     private ProductRepository repository; // Simulando inyeccion de dependencias
 
-    public ProductServiceImpl(@Qualifier("productList") ProductRepository repository) { // Constructor
+    public ProductServiceImpl(@Qualifier("productJson") ProductRepository repository) { // Constructor
         this.repository = repository;
     }
 

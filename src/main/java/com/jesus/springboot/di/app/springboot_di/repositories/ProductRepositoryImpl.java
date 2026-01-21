@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.jesus.springboot.di.app.springboot_di.models.Product;
 
 //@RequestScope // Un nuevo repositorio por cada solicitud HTTP
-@Primary // Marca esta implementacion como la principal cuando hay multiples beans del mismo tipo
+@Primary
 @Repository("productList") // Atributos
 public class ProductRepositoryImpl implements ProductRepository { // Atributos
 
